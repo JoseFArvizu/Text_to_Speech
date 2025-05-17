@@ -1,53 +1,48 @@
 # Text to Speech 📢📝➡️🔊
 
-This Jupyter Notebook provides a simple way to convert text into speech using Python. It can be used to generate audio narration, voice alerts, or accessibility features for applications and documents.
+This Jupyter Notebook converts input text into speech using the **Google Text-to-Speech (gTTS)** library. It’s useful for generating audio narrations, voice feedback, or adding accessibility features to text content.
 
 ## 📌 Overview
 
-The notebook performs the following:
-- Takes a string of text as input
-- Converts the text into speech using the `pyttsx3` library
+The notebook performs the following steps:
+- Takes text input from the user
+- Converts the text into spoken audio using the Google Text-to-Speech API
 - Saves the audio as an `.mp3` file
 
 ## 🚀 Features
 
-- Works offline — no internet connection required
-- Fast and lightweight
-- Customizable voice rate and voice selection
-- Output saved as an audio file (e.g., `output.mp3`)
+- Converts any text string into natural-sounding speech
+- Simple, beginner-friendly code
+- Outputs audio as a `.mp3` file
 
 ## 🧰 Requirements
 
-Install the following Python package before running the notebook:
+Install the following Python package:
 
 ```bash
-pip install pyttsx3
+pip install gTTS
 ```
 
-> Note: On some systems, `pyttsx3` may also require `espeak`, `sapi5`, or `nsss` depending on your OS.
+> ⚠️ **An active internet connection is required**, as `gTTS` connects to Google's servers for speech synthesis.
 
 ## 🛠️ How to Use
 
 1. Open the notebook `Text_to_Speech.ipynb`.
-2. Enter your desired text in the designated input cell.
+2. Edit the text string you want to convert.
 3. Run all cells.
-4. An audio file named `output.mp3` (or your chosen name) will be generated and saved locally.
+4. The resulting audio will be saved as `output.mp3` (or a filename of your choice).
 
 ## 📝 Example
 
-If you input:
 ```python
-text = "Welcome to the Text to Speech demo!"
-```
+from gtts import gTTS
 
-The script will create:
+text = "Hello, this is a text to speech test."
+tts = gTTS(text)
+tts.save("output.mp3")
 ```
-output.mp3
-```
-
-Which will contain your text read aloud.
 
 ## ⚠️ Notes
 
-- Output voice and clarity depend on the text-to-speech engine available on your machine.
-- You can modify the speech rate and voice parameters in the script to suit your preferences.
+- This notebook uses the **online** Google TTS service.
+- For **offline** TTS, you can explore alternatives like `pyttsx3`.
